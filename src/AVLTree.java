@@ -1,11 +1,19 @@
 public class AVLTree<K extends Comparable<K>, V> implements Tree<K, V> {
-
+    /**
+     * CLASE CON GENERICOS OBTENIDA DE CHAT GPT
+     */
     private class Node {
+
         K key;
         V value;
         Node left, right;
         int height;
 
+        /**
+         *
+         * @param key
+         * @param value
+         */
         Node(K key, V value) {
             this.key = key;
             this.value = value;
@@ -16,16 +24,31 @@ public class AVLTree<K extends Comparable<K>, V> implements Tree<K, V> {
 
     Node root;
 
+    /**
+     *
+     * @param node
+     * @return
+     */
     private int height(Node node) {
         if (node == null) return 0;
         return node.height;
     }
 
+    /**
+     *
+     * @param node
+     * @return
+     */
     private int balanceFactor(Node node) {
         if (node == null) return 0;
         return height(node.left) - height(node.right);
     }
 
+    /**
+     *
+     * @param y
+     * @return
+     */
     private Node rightRotate(Node y) {
         Node x = y.left;
         Node T2 = x.right;
@@ -36,6 +59,11 @@ public class AVLTree<K extends Comparable<K>, V> implements Tree<K, V> {
         return x;
     }
 
+    /**
+     *
+     * @param x
+     * @return
+     */
     private Node leftRotate(Node x) {
         Node y = x.right;
         Node T2 = y.left;
@@ -46,11 +74,23 @@ public class AVLTree<K extends Comparable<K>, V> implements Tree<K, V> {
         return y;
     }
 
+    /**
+     *
+     * @param key
+     * @param value
+     */
     @Override
     public void insert(K key, V value) {
         root = insertRecursively(root, key, value);
     }
 
+    /**
+     *
+     * @param node
+     * @param key
+     * @param value
+     * @return
+     */
     private Node insertRecursively(Node node, K key, V value) {
         if (node == null) return new Node(key, value);
         if (key.compareTo(node.key) < 0) {
@@ -86,6 +126,11 @@ public class AVLTree<K extends Comparable<K>, V> implements Tree<K, V> {
         return node;
     }
 
+    /**
+     *
+     * @param key
+     * @return
+     */
     @Override
     public V search(K key) {
         Node currentNode = root;

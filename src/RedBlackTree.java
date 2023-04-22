@@ -1,5 +1,7 @@
 public class RedBlackTree<K extends Comparable<K>, V> implements Tree<K, V> {
-
+    /**
+     * CLASE CON GENERICOS OBTENIDA DE CHAT GPT
+     */
     private static final boolean RED = true;
     private static final boolean BLACK = false;
 
@@ -9,6 +11,11 @@ public class RedBlackTree<K extends Comparable<K>, V> implements Tree<K, V> {
         Node left, right, parent;
         boolean color;
 
+        /**
+         *
+         * @param key
+         * @param value
+         */
         Node(K key, V value) {
             this.key = key;
             this.value = value;
@@ -19,6 +26,11 @@ public class RedBlackTree<K extends Comparable<K>, V> implements Tree<K, V> {
 
     Node root;
 
+    /**
+     *
+     * @param node
+     * @return
+     */
     private boolean isRed(Node node) {
         if (node == null) return false;
         return node.color == RED;
@@ -37,6 +49,11 @@ public class RedBlackTree<K extends Comparable<K>, V> implements Tree<K, V> {
         return rightChild;
     }
 
+    /**
+     *
+     * @param node
+     * @return
+     */
     private Node rotateRight(Node node) {
         Node leftChild = node.left;
         node.left = leftChild.right;
@@ -50,6 +67,10 @@ public class RedBlackTree<K extends Comparable<K>, V> implements Tree<K, V> {
         return leftChild;
     }
 
+    /**
+     *
+     * @param node
+     */
     private void fixInsert(Node node) {
         while (node != root && isRed(node.parent)) {
             if (node.parent == node.parent.parent.left) {
@@ -89,6 +110,11 @@ public class RedBlackTree<K extends Comparable<K>, V> implements Tree<K, V> {
         root.color = BLACK;
     }
 
+    /**
+     *
+     * @param key
+     * @param value
+     */
     public void insert(K key, V value) {
         Node newNode = new Node(key, value);
         if (root == null) {
