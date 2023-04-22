@@ -5,7 +5,7 @@ public class RedBlackTree<K extends Comparable<K>, V> implements Tree<K, V> {
     private static final boolean RED = true;
     private static final boolean BLACK = false;
 
-    private class Node {
+    public class Node {
         K key;
         V value;
         Node left, right, parent;
@@ -31,7 +31,7 @@ public class RedBlackTree<K extends Comparable<K>, V> implements Tree<K, V> {
      * @param node
      * @return
      */
-    private boolean isRed(Node node) {
+    boolean isRed(Node node) {
         if (node == null) return false;
         return node.color == RED;
     }

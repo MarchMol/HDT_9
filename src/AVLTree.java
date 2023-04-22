@@ -2,7 +2,7 @@ public class AVLTree<K extends Comparable<K>, V> implements Tree<K, V> {
     /**
      * CLASE CON GENERICOS OBTENIDA DE CHAT GPT
      */
-    private class Node {
+    public class Node {
 
         K key;
         V value;
